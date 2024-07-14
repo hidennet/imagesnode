@@ -1,4 +1,4 @@
-FROM ghcr.io/parkervcp/yolks:nodejs_14
+FROM node:14
 
 # Set working directory
 WORKDIR /home/container
