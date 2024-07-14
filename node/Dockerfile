@@ -1,14 +1,16 @@
-# Use a Node.js base image
-FROM node:14
+FROM ghcr.io/parkervcp/yolks:nodejs_14
 
-# Set the working directory
+# Set working directory
 WORKDIR /home/container
 
-# Copy the local files to the container
+# Copy the current directory contents into the container at /home/container
 COPY . .
 
-# Install dependencies
+# Install any needed packages specified in package.json
 RUN npm install
 
-# Run the application
-CMD ["./entrypoint.sh"]
+# Make entrypoint.sh executable
+RUN chmod +x /entrypoint.sh
+
+# Run entrypoint.sh when the container launches
+ENTRYPOINT ["/entrypoint.sh"]
