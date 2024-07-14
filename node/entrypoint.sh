@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ls -l /home/container/entrypoint.sh
+
 cd /home/container
 
 export INTERNAL_IP=`ip route get 1 | awk '{print $NF;exit}'`

@@ -6,10 +6,7 @@ WORKDIR /home/container
 # Copy the contents of the node folder to /home/container in the Docker image
 COPY node /home/container
 
-# Install any needed packages specified in package.json if it exists
-RUN if [ -f /home/container/package.json ]; then npm install; fi
-
-# Make entrypoint.sh executable
+# Set the correct permissions for entrypoint.sh
 RUN chmod +x /home/container/entrypoint.sh
 
 # Run entrypoint.sh when the container launches
